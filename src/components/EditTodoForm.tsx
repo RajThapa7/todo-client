@@ -47,8 +47,6 @@ export default function EditTodoForm({ open, setOpen }: IModal) {
     });
   }, [todo.data?.body, todo.data?.isActive, todo.data?.title]);
 
-  console.log(todo, formData);
-
   const editTodoMutation = useEditTodo();
 
   const handleSubmit = (e: SyntheticEvent) => {

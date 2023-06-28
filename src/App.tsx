@@ -6,6 +6,7 @@ import Todos from "./pages/todos";
 import { isAuthenticated } from "./utils/auth";
 
 function App() {
+  console.log(import.meta.env.VITE_BASE_URL, "base url");
   return (
     <>
       <Routes>
