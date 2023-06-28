@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 const useCreateApi = () => {
   const navigate = useNavigate();
   const api = axios.create({
-    baseURL: "http://localhost:4000",
+    baseURL: import.meta.env.VITE_BASE_URL,
     withCredentials: true,
   });
 
