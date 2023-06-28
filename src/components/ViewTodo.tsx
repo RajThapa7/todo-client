@@ -15,14 +15,15 @@ interface IModal {
 }
 
 export default function ViewTodo({ open, setOpen }: IModal) {
-  const [searchParams, setSearchParams] = useSearchParams();
+  //only accessing the setparams as the first part is not used
+  const setSearchParams = useSearchParams()[1];
 
   const handleOpen = () => {
     setOpen((prev) => !prev);
     setSearchParams({});
   };
 
-  const result = useFetchSingleTodo(open, setOpen);
+  const result = useFetchSingleTodo(open);
 
   return (
     <React.Fragment>

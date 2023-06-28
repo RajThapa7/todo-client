@@ -22,7 +22,9 @@ import ViewTodo from "../components/ViewTodo";
 import useLogout from "../api/hooks/useLogout";
 
 export default function Todos() {
-  const [searchParams, setSearchParams] = useSearchParams();
+  //only accessing the setparams as the first part is not used
+  const setSearchParams = useSearchParams()[1];
+
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [isViewModalOpen, setIsViewModalOpen] = useState(false);

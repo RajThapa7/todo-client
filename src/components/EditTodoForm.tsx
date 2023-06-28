@@ -22,14 +22,16 @@ interface IModal {
 
 export default function EditTodoForm({ open, setOpen }: IModal) {
   const queryClient = useQueryClient();
-  const [searchParams, setSearchParams] = useSearchParams();
+
+  //only accessing the setparams as the first part is not used
+  const setSearchParams = useSearchParams()[1];
 
   const handleOpen = () => {
     setOpen((prev) => !prev);
     setSearchParams({});
   };
 
-  const todo = useFetchSingleTodo(open, setOpen);
+  const todo = useFetchSingleTodo(open);
 
   const [formData, setFormData] = useState({
     title: todo.data?.title,

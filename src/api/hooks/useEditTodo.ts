@@ -13,7 +13,7 @@ const editTodo = async (api: AxiosInstance, data: TodoForm, id: string) => {
 
 const useEditTodo = () => {
   const api = useCreateApi();
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
   const id = searchParams.get("id") as string;
   const result = useMutation({
     mutationFn: (data: TodoForm) => editTodo(api, data, id),
