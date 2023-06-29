@@ -42,6 +42,7 @@ export default function Todos() {
   const handleLogout = () => {
     logout.mutate("_", {
       onSuccess: () => {
+        localStorage.removeItem("csrfToken");
         navigate("/login");
       },
     });

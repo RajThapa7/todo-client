@@ -22,15 +22,18 @@ const useCreateApi = () => {
   api.interceptors.response.use(
     (response) => {
       if (response.headers["x-csrf-token"]) {
-        localStorage.setItem("csrfToken", response.headers["x-csrf-token"]);
+        if (typeof window !== undefined) {
+          localStorage.setItem("csrfToken", response.headers["x-csrf-token"]);
+        }
       }
       return response;
     },
     (err) => {
       if (err.response?.status === 401 || err.response?.status === 403) {
-        localStorage.removeItem("csrfToken");
+        if (typeof window !== undefined) {
+          localStorage.removeItem("csrfToken");
+        }
         navigate("/login");
-        // window.location.href = "/login";
       }
       return Promise.reject(err);
     }
